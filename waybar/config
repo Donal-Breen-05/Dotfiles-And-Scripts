@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 42,
+    "height": 10,
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
@@ -12,49 +12,40 @@
         "custom/playerctl"
     ],
 
-    "modules-center": [],
+    "modules-center": [
+        "clock"
+    ],
 
     "modules-right": [
-        "custom/power-profile",
         "custom/notifications",
         "tray",
         "pulseaudio",
         "backlight",
-        "battery",
-        "clock"
+        "battery"
     ],
-
-    // ── Left ──────────────────────────────────────────────────────────────
     "sway/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": false,
-        "format": "{name}",
-        "persistent-workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": [],
-            "6": []
-        }
+      "disable-scroll": true,
+      "all-outputs": false,
+      "format": "{name}",
+      "sort-by-number": true,
+      "persistent-workspaces": {
+          "eDP-1": [1, 2, 3, 4, 5, 6]
+      }
+  },
+
+    "clock": {
+        "format": "󰥔  {:%H:%M}",
+        "tooltip-format": "{:%A, %d %B %Y}"
     },
 
     "custom/playerctl": {
         "exec": "~/.config/waybar/scripts/playerctl.sh",
-        "interval": 1,
         "return-type": "json",
+        "interval": 2,
         "on-click": "playerctl play-pause",
         "on-click-right": "playerctl next",
-        "on-scroll-up": "playerctl previous"
-    },
-
-    // ── Right ─────────────────────────────────────────────────────────────
-    "custom/power-profile": {
-        "exec": "~/.config/waybar/scripts/power_profiles.sh --status",
-        "interval": 2,
-        "on-click": "~/.config/waybar/scripts/power_profiles.sh --cycle",
-        "return-type": "json",
-        "tooltip": true
+        "on-scroll-up": "playerctl previous",
+        "on-scroll-down": "playerctl next"
     },
 
     "custom/notifications": {
@@ -69,49 +60,45 @@
         "spacing": 8
     },
 
-    // ── Audio ─────────────────────────────────────────────────────────────
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-muted": "󰝟 {volume}%",
+        "format-muted": "󰝟",
         "format-icons": {
-            "default": ["󰕿", "󰖀", "󰕾"]
+            "default": [
+                "󰕿",
+                "󰖀",
+                "󰕾"
+            ]
         },
-        "tooltip-format": "Volume: {volume}%",
-        "on-click": "bash -c 'if command -v pavucontrol &>/dev/null; then pavucontrol; else foot pulsemixer; fi'",
-        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
-        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+        "on-click": "pavucontrol"
     },
 
-    // ── Brightness ───────────────────────────────────────────────────────
     "backlight": {
         "format": "{icon} {percent}%",
-        "format-icons": ["󰃞", "󰃟", "󰃠"],
-        "tooltip-format": "Brightness: {percent}%",
-        "on-scroll-up": "brightnessctl set +5%",
-        "on-scroll-down": "brightnessctl set 5%-"
+        "format-icons": [
+            "󰃞",
+            "󰃟",
+            "󰃠"
+        ]
     },
 
-    // ── Battery ───────────────────────────────────────────────────────────
     "battery": {
         "format": "{icon} {capacity}%",
-        "format-charging": "󰂄 {capacity}%",
-        "format-plugged": "󰚥 {capacity}%",
         "format-icons": [
-            "󰁺", "󰁻", "󰁼", "󰁽", "󰁾",
-            "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
         ],
-        "tooltip-format": "{capacity}% — {timeTo}",
         "states": {
             "warning": 30,
             "critical": 15
         }
-    },
-
-    // ── Clock ─────────────────────────────────────────────────────────────
-    "clock": {
-        "format": "{:%H:%M}",
-        "format-alt": "{:%Y-%m-%d %H:%M:%S}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
-        "interval": 1
     }
 }

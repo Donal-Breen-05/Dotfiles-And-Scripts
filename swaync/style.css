@@ -1,77 +1,252 @@
-/* ═══════════════════════════════════════
-   SwayNC — matching Waybar lime theme
-   ═══════════════════════════════════════ */
+/* ╭──────────────────────────────────────────────────────────────╮
+   │                    SWAYNC — MINIMAL                         │
+   ╰──────────────────────────────────────────────────────────────╯ */
 
-/* ── Control center background ───────── */
-.control-center {
-    background: rgba(0, 0, 0, 0.45);
-    border-left: 1px solid rgba(166, 227, 161, 0.35);
-    color: #a6e3a1;
-}
-
-/* ── Notification popups ─────────────── */
-.notification {
-    background: rgba(0, 0, 0, 0.45);
-    border: 1px solid rgba(166, 227, 161, 0.55);
-    border-radius: 6px;
-    margin: 6px;
-    padding: 10px;
-    color: #a6e3a1;
-    box-shadow: 0 0 6px rgba(166, 227, 161, 0.15);
-}
-
-/* ── Notification hover ──────────────── */
-.notification:hover {
-    background: rgba(166, 227, 161, 0.10);
-    box-shadow: 0 0 10px rgba(166, 227, 161, 0.35);
-}
-
-/* ── Title (app name) ────────────────── */
-.notification .summary {
-    font-weight: 600;
-    color: #a6e3a1;
-}
-
-/* ── Body text ───────────────────────── */
-.notification .body {
-    color: rgba(166, 227, 161, 0.75);
-}
-
-/* ── Buttons inside notifications ────── */
-.notification button {
-    background: rgba(166, 227, 161, 0.10);
-    border: 1px solid rgba(166, 227, 161, 0.4);
-    border-radius: 4px;
-    color: #a6e3a1;
-}
-
-.notification button:hover {
-    background: rgba(166, 227, 161, 0.20);
-}
-
-/* ── Control center header ───────────── */
-.widget-title {
-    color: #a6e3a1;
-    font-weight: bold;
-}
-
-/* ── Clear / DND buttons ─────────────── */
-.widget-dnd,
-.widget-clear {
-    background: rgba(166, 227, 161, 0.10);
-    border: 1px solid rgba(166, 227, 161, 0.5);
-    border-radius: 5px;
-    color: #a6e3a1;
-}
-
-.widget-dnd:hover,
-.widget-clear:hover {
-    background: rgba(166, 227, 161, 0.20);
-    box-shadow: 0 0 6px rgba(166, 227, 161, 0.3);
-}
-
-/* ── Scrollbar ───────────────────────── */
 * {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(166, 227, 161, 0.4) transparent;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CONTROL CENTER
+   ───────────────────────────────────────────────────────────── */
+
+.control-center {
+    background: rgba(20, 22, 28, 0.94);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+
+    margin: 12px;
+    padding: 16px;
+
+    color: #cdd6f4;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   NOTIFICATION POPUPS
+   ───────────────────────────────────────────────────────────── */
+
+.notification {
+    background: rgba(30, 32, 40, 0.94);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+
+    margin: 6px;
+    padding: 0;
+
+    color: #cdd6f4;
+}
+
+.notification:hover {
+    background: rgba(49, 50, 62, 0.96);
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   NOTIFICATION CONTENT
+   ───────────────────────────────────────────────────────────── */
+
+.notification-content {
+    padding: 14px;
+}
+
+.summary {
+    color: #cdd6f4;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.body {
+    color: #a6adc8;
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.time {
+    color: #7f849c;
+
+    font-size: 11px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   APP ICON
+   ───────────────────────────────────────────────────────────── */
+
+.image {
+    border-radius: 14px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CLOSE BUTTON
+   ───────────────────────────────────────────────────────────── */
+
+.close-button {
+    background: rgba(255, 255, 255, 0.06);
+
+    border: none;
+    border-radius: 999px;
+
+    color: #7f849c;
+
+    margin: 8px;
+    padding: 5px;
+
+    transition: all 150ms ease;
+}
+
+.close-button:hover {
+    background: rgba(243, 139, 168, 0.20);
+    color: #f38ba8;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CONTROL CENTER HEADER
+   ───────────────────────────────────────────────────────────── */
+
+.widget-title {
+    color: #cdd6f4;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    margin: 4px 4px 12px 4px;
+}
+
+.widget-title > button {
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 999px;
+
+    color: #a6adc8;
+
+    padding: 7px 14px;
+
+    transition: all 150ms ease;
+}
+
+.widget-title > button:hover {
+    background: rgba(205, 214, 244, 0.12);
+    color: #cdd6f4;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   DND / MPRIS / OTHER WIDGETS
+   ───────────────────────────────────────────────────────────── */
+
+.widget-dnd {
+    background: rgba(30, 32, 40, 0.88);
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 18px;
+
+    margin: 6px 4px;
+    padding: 12px;
+}
+
+.widget-dnd > switch {
+    background: rgba(255, 255, 255, 0.08);
+
+    border-radius: 999px;
+}
+
+.widget-dnd > switch:checked {
+    background: #a6e3a1;
+}
+
+.widget-mpris {
+    background: rgba(30, 32, 40, 0.88);
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 18px;
+
+    margin: 6px 4px;
+    padding: 12px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   BUTTONS
+   ───────────────────────────────────────────────────────────── */
+
+.widget-buttons-grid {
+    background: transparent;
+
+    margin: 6px 4px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    background: rgba(30, 32, 40, 0.88);
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+
+    color: #a6adc8;
+
+    margin: 3px;
+    padding: 10px;
+
+    transition: all 150ms ease;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+    background: rgba(205, 214, 244, 0.12);
+    color: #cdd6f4;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SLIDERS
+   ───────────────────────────────────────────────────────────── */
+
+trough {
+    background: rgba(255, 255, 255, 0.07);
+
+    border-radius: 999px;
+}
+
+highlight {
+    background: #cdd6f4;
+
+    border-radius: 999px;
+}
+
+slider {
+    background: #ffffff;
+
+    border-radius: 999px;
+
+    min-width: 12px;
+    min-height: 12px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SCROLLBAR
+   ───────────────────────────────────────────────────────────── */
+
+scrollbar {
+    background: transparent;
+}
+
+scrollbar slider {
+    background: rgba(255, 255, 255, 0.12);
+
+    border-radius: 999px;
+
+    min-width: 6px;
+    min-height: 6px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   POPUP NOTIFICATION WINDOW
+   ───────────────────────────────────────────────────────────── */
+
+.blank-window {
+    background: transparent;
+}
+
+.notification-window {
+    background: transparent;
 }
